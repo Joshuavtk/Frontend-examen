@@ -8,21 +8,28 @@
 import Wrapper from './components/Wrapper';
 
 export default {
-  name: 'App',
-  components: {
-    Wrapper,
-  },
+    name: 'App',
+    components: {
+        Wrapper,
+    },
 };
 </script>
 
 <style lang="scss">
+$primary: #ff008c;
+
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+html {
+    background-color: black;
+}
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #ff008c;
+    margin-top: 60px;
+    background-color: black;
 }
 </style>
