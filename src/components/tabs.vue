@@ -1,37 +1,33 @@
 <template>
     <div class="card">
         <div class="card-header form-inline p-0">
-            <div class="form-group w-100 border-bottom text-center">
+            <div class="form-group w-100 border-bottom text-center mb-0">
                 <h3 class="form-title w-100">Inlichtingenformulier schooljaar 2018 - 2019</h3>
             </div>
             <ul class="navbar navbar-light bg-light mr-auto p-0 m-0">
-                <li class="nav-link" v-for="tab in tabs" :key="tab.id" :class="{ 'active': tab.isActive, 'complete': tab.completed }" @click="selectTab(tab)">
+                <li class="nav-link" v-for="tab in tabs" :key="tab.id" :class="{ 'active': tab.isActive, 'complete': tab.completed }">
                     {{tab.name}}
                     <span class="chevron"></span>
                 </li>
             </ul>
-            <div class="actions">
-                <button type="button" class="btn btn-xs btn-prev btn-secondary">
-                    <i class="icon mdi mdi-chevron-left"></i> Prev</button>
-                <button type="button" data-last="Finish"
-                class="btn btn-xs btn-next btn-secondary">Next
-                    <i class="icon mdi mdi-chevron-right"></i>
+            <div class="mr-1">
+                <button type="button" class="btn btn-xs btn-prev btn-secondary" :disabled="!canGoBack" @click="previousTab">
+                    ⬅ Terug</button>
+                <button type="button" data-last="Finish" class="btn btn-xs btn-next btn-secondary" :disabled="!canGoFurther" @click="nextTab">Verder ➡
                 </button>
             </div>
         </div>
         <div class="step-content">
             <div class="step-pane active">
-                <div class="container p-0">
+                <div class="container p-0 mt-3">
                     <form action="#" class="form-horizontal group-border-dashed">
                         <slot></slot>
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <button class="btn btn-secondary btn-space"
-                                @click="previousTab">
+                                <button class="btn btn-secondary btn-space" :disabled="!canGoBack" @click="previousTab">
                                     Vorige stap
                                 </button>
-                                <button class="btn btn-primary btn-space wizard-next"
-                                 @click="nextTab">
+                                <button class="btn btn-primary btn-space" :disabled="!canGoFurther" @click="nextTab">
                                     Volgende stap
                                 </button>
                             </div>
@@ -48,7 +44,13 @@ export default {
     methods: {
         selectTab(selectedTab) {
             this.tabs.forEach(tab => {
-                tab.isActive = tab === selectedTab;
+                if (tab === selectedTab) {
+                    tab.isActive = true;
+                    this.canGoBack = tab !== this.tabs[0];
+                    this.canGoFurther = tab !== this.tabs[this.tabs.length - 1];
+                } else {
+                    tab.isActive = false;
+                }
             });
         },
         nextTab() {
@@ -75,6 +77,8 @@ export default {
     data() {
         return {
             tabs: [],
+            canGoBack: false,
+            canGoFurther: true,
         };
     },
 
@@ -144,6 +148,10 @@ li.complete > .chevron::before {
 
 .navbar {
     margin-left: -1px !important;
+}
+
+form {
+    color: black;
 }
 
 @media (max-width: 650px) {

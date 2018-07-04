@@ -1,5 +1,10 @@
 <template>
     <div v-show="isActive">
+        <div class="form-group row">
+            <div class="col-sm-7">
+                <h2 v-text="name"></h2>
+            </div>
+        </div>
         <slot></slot>
     </div>
 </template>
@@ -31,3 +36,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+h2 {
+    color: #ff008c;
+}
+</style>
