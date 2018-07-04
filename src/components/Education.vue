@@ -22,15 +22,9 @@
             </div>
         </div>
         <div class="form-group row">
-            <label :class="labelClass">Naam leerling</label>
+            <label :class="labelClass">Diploma behaald / te behalen op:</label>
             <div :class="inputWrapper">
-                <input type="text" placeholder="User name" class="form-control">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label :class="labelClass">Geboortedatum</label>
-            <div :class="inputWrapper">
-                <input type="text" placeholder="User E-Mail" class="form-control">
+                <input type="date" class="form-control">
             </div>
         </div>
     </div>

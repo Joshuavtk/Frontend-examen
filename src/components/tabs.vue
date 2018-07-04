@@ -5,16 +5,16 @@
                 <h3 class="form-title w-100">Inlichtingenformulier schooljaar 2018 - 2019</h3>
             </div>
             <ul class="navbar navbar-light bg-light mr-auto p-0 m-0">
-                <li class="nav-link" v-for="tab in tabs" :key="tab.id" :class="{ 'active': tab.isActive, 'complete': tab.completed }">
-                    {{tab.name}}
+                <li class="nav-link" v-for="tab in tabs" :key="tab.id"
+                    :class="{ 'active': tab.isActive, 'complete': tab.completed }">{{tab.name}}
                     <span class="chevron"></span>
                 </li>
             </ul>
             <div class="mr-1">
-                <button type="button" class="btn btn-xs btn-prev btn-secondary" :disabled="!canGoBack" @click="previousTab">
-                    ⬅ Terug</button>
-                <button type="button" data-last="Finish" class="btn btn-xs btn-next btn-secondary" :disabled="!canGoFurther" @click="nextTab">Verder ➡
-                </button>
+                <button type="button" class="btn btn-xs btn-prev btn-secondary"
+                    :disabled="!canGoBack" @click="previousTab">⬅ Terug</button>
+                <button type="button" data-last="Finish" class="btn btn-xs btn-next btn-secondary"
+                    :disabled="!canGoFurther" @click="nextTab">Verder ➡</button>
             </div>
         </div>
         <div class="step-content">
@@ -24,11 +24,17 @@
                         <slot></slot>
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <button class="btn btn-secondary btn-space" :disabled="!canGoBack" @click="previousTab">
+                                <button class="btn btn-secondary btn-space"
+                                :disabled="!canGoBack" @click="previousTab">
                                     Vorige stap
                                 </button>
-                                <button class="btn btn-primary btn-space" :disabled="!canGoFurther" @click="nextTab">
+                                <button class="btn btn-primary btn-space"
+                                v-show="canGoFurther" @click="nextTab">
                                     Volgende stap
+                                </button>
+                                <button class="btn btn-success btn-space"
+                                v-show="!canGoFurther" @click="submitForm">
+                                    Verzend formulier
                                 </button>
                             </div>
                         </div>
@@ -71,6 +77,9 @@ export default {
                     this.selectTab(previousTab);
                 }
             });
+        },
+        submitForm() {
+            alert('Formulier verzonden!');
         },
     },
 
