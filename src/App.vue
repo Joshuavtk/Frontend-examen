@@ -54,6 +54,11 @@ $primary: #ff008c;
 
 html {
     background-color: black;
+    background-image: url('assets/ma.svg');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    height: 100%;
 }
 
 #app {
@@ -62,7 +67,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #ff008c;
-    margin-top: 60px;
+    margin: 60px 0;
     background-color: black;
 }
 </style>
