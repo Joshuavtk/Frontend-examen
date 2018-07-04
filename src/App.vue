@@ -1,48 +1,64 @@
 <template>
     <div id="app">
         <Wrapper>
-            <tabs>
-                <tab name="Begin" :selected="true">
-                    <Start/>
-                </tab>
-                <tab name="Opleiding">
+            <Tabs>
+                <Tab name="Begin" :selected="true">
+                    <div class="form-group row">
+                        <label :class="labelClass">Naam leerling</label>
+                        <div :class="inputWrapper">
+                            <input type="text" placeholder="Naam..." class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label :class="labelClass">Geboortedatum</label>
+                        <div :class="inputWrapper">
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                </Tab>
+                <Tab name="Opleiding">
                     <Education/>
-                </tab>
-                <tab name="Indruk">
+                </Tab>
+                <Tab name="Indruk">
                     <Impression/>
-                </tab>
-                <tab name="Bijzonderheden">
+                </Tab>
+                <Tab name="Bijzonderheden">
                     <Exceptions/>
-                </tab>
-                <tab name="Uw gegevens">
+                </Tab>
+                <Tab name="Uw gegevens">
                     <PersonalInfo/>
-                </tab>
-            </tabs>
+                </Tab>
+            </Tabs>
         </Wrapper>
     </div>
 </template>
 
 <script>
 import Wrapper from './components/Wrapper';
-import Start from './components/Start';
 import Education from './components/Education';
 import Impression from './components/Impression';
 import Exceptions from './components/Exceptions';
 import PersonalInfo from './components/PersonalInfo';
-import tab from './components/tab';
-import tabs from './components/tabs';
+import Tab from './components/Tab';
+import Tabs from './components/Tabs';
 
 export default {
     name: 'App',
+    data() {
+        return {
+            labelClass:
+                'col-12 col-sm-3 col-form-label text-left text-sm-right',
+            inputWrapper: 'col-12 col-sm-8 col-lg-6',
+        };
+    },
     components: {
         Wrapper,
-        Start,
         Education,
         Impression,
         Exceptions,
         PersonalInfo,
-        tab,
-        tabs,
+        Tab,
+        Tabs,
     },
 };
 </script>
