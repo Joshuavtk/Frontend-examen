@@ -2,7 +2,7 @@
     <div v-show="isActive">
         <div class="form-group row">
             <div class="col-12">
-                <h2 v-text="name"></h2>
+                <h3 v-text="title"></h3>
             </div>
         </div>
         <slot></slot>
@@ -18,6 +18,9 @@ export default {
         selected: {
             default: false,
         },
+        title: {
+            required: true,
+        }
     },
     computed: {
         href() {
@@ -38,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-h2 {
+h3 {
     color: #ff008c;
 }
 </style>

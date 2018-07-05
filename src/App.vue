@@ -2,7 +2,7 @@
     <div id="app">
         <Wrapper>
             <Tabs>
-                <Tab name="Begin" :selected="true">
+                <Tab title="Gegevens van de leerling." name="Begin" :selected="true">
                     <div class="form-group row">
                         <label :class="labelClass">Naam leerling</label>
                         <div :class="inputWrapper">
@@ -16,16 +16,16 @@
                         </div>
                     </div>
                 </Tab>
-                <Tab name="Opleiding">
+                <Tab title="Welke opleiding volgt de leerling?" name="Opleiding">
                     <Education/>
                 </Tab>
-                <Tab name="Indruk">
+                <Tab title="Hoe is uw indruk op school over de leerling?" name="Indruk">
                     <Impression/>
                 </Tab>
-                <Tab name="Bijzonderheden">
+                <Tab title="Bijzonderheden (i.v.m. de mogelijkheden tot extra begeleiding)" name="Bijzonderheden">
                     <Exceptions/>
                 </Tab>
-                <Tab name="Uw gegevens">
+                <Tab title="Uw persoonlijke gegevens." name="Uw gegevens">
                     <PersonalInfo/>
                 </Tab>
             </Tabs>

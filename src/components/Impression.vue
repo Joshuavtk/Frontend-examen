@@ -2,7 +2,13 @@
     <div>
         <div v-for="(sub_categories, index) in categories" :key="index">
             <h4>{{index}}</h4>
-            <InlineRadio v-for="(category, index) in sub_categories" :key="index" :title="category" :array="results"/>
+            <InlineRadio v-for="(category, index) in sub_categories" :key="index" :title="category" :array="results" />
+        </div>
+        <div class="form-group row">
+            <label for="clarification" :class="labelClass">Toelichting:</label>
+            <div :class="inputWrapper">
+                <textarea class="form-control" id="clarification" rows="3"></textarea>
+            </div>
         </div>
     </div>
 </template>
@@ -18,13 +24,13 @@ export default {
     data() {
         return {
             categories: {
-                'Werkhouding': [
+                Werkhouding: [
                     'Concentratie',
                     'Werktempo',
                     'Zelfstandig werken in klas',
                 ],
-                'Instelling': ['Motivatie', 'Doorzettingsvermogen'],
-                'Vaardigheden': [
+                Instelling: ['Motivatie', 'Doorzettingsvermogen'],
+                Vaardigheden: [
                     'Communicatieve vaardigheden',
                     'Sociale vaardigheden',
                 ],
