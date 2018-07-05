@@ -20,7 +20,8 @@
         <div class="step-content">
             <div class="step-pane active">
                 <div class="container p-0 mt-3">
-                    <form action="#" class="form-horizontal group-border-dashed">
+                    <form action="#" class="form-horizontal group-border-dashed col"
+                        v-on:submit.prevent>
                         <slot></slot>
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
@@ -32,7 +33,7 @@
                                 v-show="canGoFurther" @click="nextTab">
                                     Volgende stap
                                 </button>
-                                <button class="btn btn-success btn-space"
+                                <button type="submit" class="btn btn-success btn-space"
                                 v-show="!canGoFurther" @click="submitForm">
                                     Verzend formulier
                                 </button>
@@ -49,26 +50,29 @@
 export default {
     methods: {
         selectTab(selectedTab) {
-            this.tabs.forEach(tab => {
-                if (tab === selectedTab) {
-                    tab.isActive = true;
+            for (let i = 0; i < this.tabs.length; i += 1) {
+                const tab = this.tabs[i];
+                const isCorrectTab = tab === selectedTab;
+                tab.isActive = isCorrectTab;
+                if (isCorrectTab) {
                     this.canGoBack = tab !== this.tabs[0];
                     this.canGoFurther = tab !== this.tabs[this.tabs.length - 1];
-                } else {
-                    tab.isActive = false;
                 }
-            });
+            }
         },
+
         nextTab() {
-            let nextTab = 0;
+            let nextTabIndex = 0;
             this.tabs.forEach((tab, i) => {
                 if (tab.isActive) {
-                    tab.completed = true;
-                    nextTab = i;
+                    const previousTab = tab;
+                    previousTab.completed = true;
+                    nextTabIndex = i + 1;
                 }
             });
-            this.selectTab(this.tabs[nextTab + 1]);
+            this.selectTab(this.tabs[nextTabIndex]);
         },
+
         previousTab() {
             this.tabs.forEach((tab, i) => {
                 if (tab.isActive) {
@@ -78,6 +82,7 @@ export default {
                 }
             });
         },
+
         submitForm() {
             alert('Formulier verzonden!');
         },
