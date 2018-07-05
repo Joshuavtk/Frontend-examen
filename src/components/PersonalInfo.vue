@@ -1,54 +1,63 @@
 <template>
     <div>
+
         <div class="form-group row">
-            <div class="col-sm-6">
-                <label class="col-form-label">Naam:</label>
-                <input type="text" value="Naam..." class="form-control">
-            </div>
-            <div class="col-sm-6">
-                <label class="col-form-label">Geslacht:</label>
-                <br>
-                <label class="col-form-label">Man
-                    <input type="radio" name="gender" value="Man">
-                </label>
-                <label class="col-form-label">Vrouw
-                    <input type="radio" name="gender" value="Vrouw">
-                </label>
-            </div>
-            <div class="col-sm-6">
-                <label class="col-form-label">Change Plan</label>
-                <p>Change your plan many times as you want.</p>
-                <select class="select2">
-                    <optgroup label="Personal">
-                        <option value="p1">Basic</option>
-                        <option value="p2">Medium</option>
-                    </optgroup>
-                    <optgroup label="Company">
-                        <option value="p3">Standard</option>
-                        <option value="p4">Silver</option>
-                        <option value="p5">Gold</option>
-                    </optgroup>
-                </select>
+            <label :class="labelClass" for="name">Naam</label>
+            <div :class="inputWrapper">
+                <input type="text" class="form-control" id="name" placeholder="Naam...">
             </div>
         </div>
+
+        <InlineRadio title="Geslacht" :array="['Man', 'Vrouw']" />
+
         <div class="form-group row">
-            <div class="col-sm-6">
-                <label class="col-form-label">Payment Rate:
-                    <span id="rate">5%</span>
-                </label>
-                <p>Choose your payment rate to calculate how much money you will recieve.</p>
-                <input id="rate_slider" data-slider-min="0" data-slider-max="100"
-                type="text" value="5" class="bslider form-control">
-            </div>
-            <div class="col-sm-6">
-                <label class="col-form-label">Keywords</label>
-                <p>Write your keywords to do a successful SEO with web search engines.</p>
-                <select multiple="" class="tags">
-                    <option value="1">Twitter</option>
-                    <option value="2">Google</option>
-                    <option value="3">Facebook</option>
-                </select>
+            <label :class="labelClass" for="function">Functie</label>
+            <div :class="inputWrapper">
+                <input type="text" class="form-control" id="function" placeholder="Functie...">
             </div>
         </div>
+
+        <div class="form-group row">
+            <label :class="labelClass" for="e-mail">E-mail</label>
+            <div :class="inputWrapper">
+                <input type="email" class="form-control" id="e-mail" placeholder="E-mail...">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label :class="labelClass" for="school">Naam school</label>
+            <div :class="inputWrapper">
+                <input type="text" class="form-control" id="school" placeholder="School...">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label :class="labelClass" for="location">Plaats</label>
+            <div :class="inputWrapper">
+                <input type="text" class="form-control" id="location" placeholder="Plaats...">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label :class="labelClass" for="telephone">Telefoon</label>
+            <div :class="inputWrapper">
+                <input type="text" class="form-control" id="telephone" placeholder="Telefoon...">
+            </div>
+        </div>
+
+        <ButtonRadio title="Telefonisch contact gewenst" identifier="call-me"/>
+
     </div>
 </template>
+
+<script>
+import ButtonRadio from './ButtonRadio';
+import InlineRadio from './InlineRadio';
+
+export default {
+    components: {
+        ButtonRadio,
+        InlineRadio,
+    },
+};
+</script>

@@ -4,6 +4,12 @@
             <Tabs>
                 <Tab title="Gegevens van de leerling." name="Begin" :selected="true">
                     <div class="form-group row">
+                        <p class="text-info mx-auto">
+                            Dit formulier moet je in laten vullen door je decaan/mentor. <br>
+                            Mocht je geen decaan/mentor hebben neem dan contact met ons op.
+                        </p>
+                    </div>
+                    <div class="form-group row">
                         <label :class="labelClass">Naam leerling</label>
                         <div :class="inputWrapper">
                             <input type="text" placeholder="Naam..." class="form-control">
