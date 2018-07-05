@@ -22,7 +22,8 @@
                 <Tab title="Hoe is uw indruk op school over de leerling?" name="Indruk">
                     <Impression/>
                 </Tab>
-                <Tab title="Bijzonderheden (i.v.m. de mogelijkheden tot extra begeleiding)" name="Bijzonderheden">
+                <Tab title="Bijzonderheden (i.v.m. de mogelijkheden tot extra begeleiding)"
+                    name="Bijzonderheden">
                     <Exceptions/>
                 </Tab>
                 <Tab title="Uw persoonlijke gegevens." name="Uw gegevens">

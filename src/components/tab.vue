@@ -20,7 +20,7 @@ export default {
         },
         title: {
             required: true,
-        }
+        },
     },
     computed: {
         href() {

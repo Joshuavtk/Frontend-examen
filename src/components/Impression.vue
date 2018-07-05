@@ -2,7 +2,8 @@
     <div>
         <div v-for="(sub_categories, index) in categories" :key="index">
             <h4>{{index}}</h4>
-            <InlineRadio v-for="(category, index) in sub_categories" :key="index" :title="category" :array="results" />
+            <InlineRadio v-for="(category, index) in sub_categories" :key="index"
+                :title="category" :array="results" />
         </div>
         <div class="form-group row">
             <label for="clarification" :class="labelClass">Toelichting:</label>

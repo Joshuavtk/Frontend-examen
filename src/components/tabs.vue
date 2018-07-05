@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header form-inline p-0">
             <div class="form-group w-100 border-bottom text-center mb-0">
-                <h3 class="form-title w-100">Inlichtingenformulier schooljaar 2018 - 2019</h3>
+                <h4 class="form-title w-100">Inlichtingenformulier schooljaar 2018 - 2019</h4>
             </div>
             <ul class="navbar navbar-light bg-light mr-auto p-0 m-0">
                 <li class="nav-link" v-for="tab in tabs" :key="tab.id"
