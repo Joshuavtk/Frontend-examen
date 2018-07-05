@@ -1,7 +1,7 @@
 <template>
     <div v-show="isActive">
         <div class="form-group row">
-            <div class="col-sm-7">
+            <div class="col-12">
                 <h2 v-text="name"></h2>
             </div>
         </div>

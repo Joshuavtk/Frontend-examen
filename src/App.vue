@@ -44,13 +44,6 @@ import Tabs from './components/Tabs';
 
 export default {
     name: 'App',
-    data() {
-        return {
-            labelClass:
-                'col-12 col-sm-3 col-form-label text-left text-sm-right',
-            inputWrapper: 'col-12 col-sm-8 col-lg-6',
-        };
-    },
     components: {
         Wrapper,
         Education,
