@@ -10,15 +10,15 @@
                         </p>
                     </div>
                     <div class="form-group row">
-                        <label :class="labelClass">Naam leerling</label>
+                        <label :class="labelClass" for="name_student">Naam leerling</label>
                         <div :class="inputWrapper">
-                            <input type="text" placeholder="Naam..." class="form-control">
+                            <input type="text" placeholder="Naam..." id="name_student" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label :class="labelClass">Geboortedatum</label>
+                        <label :class="labelClass" for="birthdate">Geboortedatum</label>
                         <div :class="inputWrapper">
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" id="birthdate">
                         </div>
                     </div>
                 </Tab>
